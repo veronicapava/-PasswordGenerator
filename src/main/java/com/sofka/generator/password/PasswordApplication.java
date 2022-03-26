@@ -2,14 +2,20 @@ package com.sofka.generator.password;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.mongodb.repository.config.EnableReactiveMongoRepositories;
 
 @SpringBootApplication
-@EnableReactiveMongoRepositories
-public class PasswordApplication {
+public class PasswordApplication{
 
-	public static void main(String[] args) {
-		SpringApplication.run(PasswordApplication.class, args);
-	}
 
+    public static void main(String[] args) {
+        SpringApplication.run(PasswordApplication.class, args);
+    }
+
+/*
+
+    @Override
+    public void run(String... args) throws Exception {
+        var a = generatePass();
+        a.subscribe(p -> log.info(p.toString()));
+    }*/
 }
