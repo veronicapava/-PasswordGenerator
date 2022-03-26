@@ -1,15 +1,11 @@
 import Banner from './components/Banner'
-import Input from './components/Input'
-import Buttom from './components/Buttom'
-import Result from './components/Result'
+import Form from './components/Form'
 
 function App() {
   return (
     <div>
       <Banner />
-      <Input />
-      <Buttom />
-      <Result />
+      <Form />
     </div>
   );
 }
