@@ -1,6 +1,7 @@
 import { useState} from 'react'
 import {fetchBack} from '../actions/fetchBack'
 import {connect} from 'react-redux'
+import Banner from '../components/Banner'
 
 const Form = (props)=>  {
     const [valor, setValor] = useState("")
@@ -11,10 +12,11 @@ const Form = (props)=>  {
     
   return (
     <>
-     <form onSubmit={onSubmit}>
-        <input type="number" onChange={(e) => setValor(e.target.value)}/>
+     <form onSubmit={onSubmit} className="card card-body">
+        <Banner/>
+        <input className="col-md-4 mx-auto" type="number" onChange={(e) => setValor(e.target.value)}/>
         <br/>
-        <button type="submit">Generar contraseña</button>
+        <button className="col-md-4 mx-auto btn btn-lg btn-primary" type="submit">Generar contraseña</button>
      </form>
     </>
   )

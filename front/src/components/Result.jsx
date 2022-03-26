@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 
 const Result = (props) => {
   return (
-    <>
+    <div className="col-md-4 mx-auto">
       {props.result && 'Tu nueva contraseña: ' + props.result }
-    </>
+    </div>
   )
 }
 
