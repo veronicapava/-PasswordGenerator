@@ -1,29 +1,29 @@
 import { useState} from 'react'
+import {fetchBack} from '../actions/fetchBack'
+import {connect} from 'react-redux'
 
-function Form ()  {
-    const generar = (e) => {
-        console.log("Entrando")
-        e.preventDefault()
-                const baseUrl = "http://localhost:8100/"
-                const endPoint = "post"
-                fetch(baseUrl + endPoint,{
-                  method: "POST",
-                  headers: {"Content-Type": "application/json" },
-                  body: JSON.stringify({size: valor})
-                }).then(response => response.json())
-                .then(data => console.log(data))
-                .catch(err => console.log(err))
-    }
+const Form = (props)=>  {
     const [valor, setValor] = useState("")
+    const onSubmit = (e) => {
+        e.preventDefault()
+       props.dispatch(fetchBack(valor))
+    }
+    
   return (
     <>
-     <form onSubmit={generar}>
-        <input type="number" value={valor} onChange={(e) => setValor(e.target.value)}/>
+     <form onSubmit={onSubmit}>
+        <input type="number" onChange={(e) => setValor(e.target.value)}/>
+        <br/>
         <button type="submit">Generar contraseña</button>
-        <h4>Tu nueva contraseña es:</h4>
      </form>
     </>
   )
 }
 
-export default Form
+const stateMapToProps = (state) => {
+    return {
+        loading: state.view.loading
+    }
+}
+
+export default connect(stateMapToProps) (Form)

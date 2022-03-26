@@ -1,11 +1,18 @@
 import React from 'react'
+import { connect } from 'react-redux';
 
-function Result ()  {
+const Result = (props) => {
   return (
     <>
-        <h4>Tu nueva contraseña: </h4>
+      {props.result && 'Tu nueva contraseña: ' + props.result }
     </>
   )
 }
 
-export default Result
+const stateMapToProps = state => {
+  return {
+    result: state.random.result?.password
+  }
+}
+
+export default connect(stateMapToProps)(Result)
