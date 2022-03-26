@@ -9,10 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
-
-
 @RestController
-@CrossOrigin()
+@CrossOrigin("http://localhost:3000")
 @RequestMapping(value= "/")
 public class PasswordController {
 
@@ -26,7 +24,6 @@ public class PasswordController {
 
     @PostMapping(value= "/post")
     public ResponseEntity<Mono<Password>> generatePass(@RequestBody SizeDTO size){
-        System.out.println(size.getSize());
        return new ResponseEntity<>(passwordService.generatePass(size.getSize()), HttpStatus.CREATED);
     }
 }
