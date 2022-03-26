@@ -1,8 +1,15 @@
+import Banner from './components/Banner'
+import Input from './components/Input'
+import Buttom from './components/Buttom'
+import Result from './components/Result'
 
 function App() {
   return (
     <div>
-      Hola mundo
+      <Banner />
+      <Input />
+      <Buttom />
+      <Result />
     </div>
   );
 }
